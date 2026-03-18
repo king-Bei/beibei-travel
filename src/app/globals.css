@@ -26,6 +26,7 @@ body {
   .bg-luxury-cream { background-color: #F5F5F0; }
   
   /* 字體色 */
+  .text-luxury-black { color: #0A0A0A; }
   .text-luxury-gold { color: #C9A227; }
   .text-luxury-cream { color: #F5F5F0; }
   .text-luxury-muted { color: #888888; }
