@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, Clock, ChevronRight, Search } from "lucide-react";
 
 const articles = [
@@ -7,7 +8,7 @@ const articles = [
     title: "馬爾代夫全攻略｜2026 最新選島指南與預算分析",
     excerpt: "想去馬爾代夫但不知道如何選島？這篇完整攻略幫你分析各价位度假村、推荐必去岛屿，以及隐藏版省钱技巧！",
     category: "景點",
-    image: "🏝️",
+    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=600&fit=crop",
     date: "2026-03-15",
     readTime: "8 分鐘",
     featured: true
@@ -17,7 +18,7 @@ const articles = [
     title: "帛琉潛水全攻略｜與鯊魚共舞的夢幻體驗",
     excerpt: "帛琉是潛水者的天堂！本文详细介绍最佳潜点、水下生物观赏季节，以及不會告訴你的省錢秘密。",
     category: "體驗",
-    image: "🤿",
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop",
     date: "2026-03-10",
     readTime: "6 分鐘",
     featured: true
@@ -27,7 +28,7 @@ const articles = [
     title: "沖繩美食地圖｜10 間在地人推薦的隱藏版餐廳",
     excerpt: "不再只有國際通！探索在地人吃的沖繩料理，從阿古豬到塔可飯，這些美食景點你一定要知道。",
     category: "美食",
-    image: "🍜",
+    image: "https://images.unsplash.com/photo-1580821810645-11a8fd7c9f83?w=800&h=600&fit=crop",
     date: "2026-03-05",
     readTime: "5 分鐘",
     featured: false
@@ -37,7 +38,7 @@ const articles = [
     title: "東京攝影指南｜街頭拍攝技巧與最佳取景點",
     excerpt: "用相機記錄東京的美好！分享街頭攝影的構圖技巧，以及 5 個絕對出片的拍攝地點。",
     category: "攝影",
-    image: "📷",
+    image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&h=600&fit=crop",
     date: "2026-02-28",
     readTime: "7 分鐘",
     featured: false
@@ -47,7 +48,7 @@ const articles = [
     title: "濟州島自由行｜一人預算 5000 元的玩轉攻略",
     excerpt: "濟州島是省錢旅行的首選！完整交通攻略、免費景點推薦，以及如何用少少預算玩到翻。",
     category: "攻略",
-    image: "🚌",
+    image: "https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=800&h=600&fit=crop",
     date: "2026-02-20",
     readTime: "9 分鐘",
     featured: false
@@ -57,7 +58,7 @@ const articles = [
     title: "泰國簽證最新政策｜2026 免簽入境的要注意的事",
     excerpt: "泰國持續免簽！但這些细节你必须知道。快速通关技巧、落地签流程，以及常见问题解答。",
     category: "須知",
-    image: "📋",
+    image: "https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&h=600&fit=crop",
     date: "2026-02-15",
     readTime: "4 分鐘",
     featured: false
@@ -69,29 +70,6 @@ const categories = ["全部", "攻略", "景點", "美食", "攝影", "須知", 
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-luxury-black text-luxury-cream">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-luxury-black/80 backdrop-blur-md border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="font-playfair text-2xl font-bold tracking-wider">
-            <span className="text-luxury-gold">B</span>EIBEI
-          </Link>
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="/blog" className="text-sm uppercase tracking-widest text-luxury-gold">
-              Journal
-            </Link>
-            <Link href="/about" className="text-sm uppercase tracking-widest text-luxury-muted hover:text-luxury-gold transition-colors">
-              About
-            </Link>
-            <Link href="/contact" className="text-sm uppercase tracking-widest text-luxury-muted hover:text-luxury-gold transition-colors">
-              Contact
-            </Link>
-          </div>
-          <Link href="/" className="btn-luxury text-xs">
-            Home
-          </Link>
-        </div>
-      </nav>
-
       {/* Header */}
       <section className="pt-40 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
@@ -154,8 +132,13 @@ export default function BlogPage() {
                 href={`/blog/${article.slug}`}
                 className="group grid md:grid-cols-2 gap-6 border border-white/10 hover:border-luxury-gold/50 transition-all"
               >
-                <div className="aspect-[4/3] md:aspect-auto bg-luxury-charcoal flex items-center justify-center text-8xl">
-                  {article.image}
+                <div className="relative aspect-[4/3] md:aspect-auto overflow-hidden">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
                 </div>
                 <div className="p-6 md:p-8 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-4">
@@ -193,8 +176,13 @@ export default function BlogPage() {
                 href={`/blog/${article.slug}`}
                 className="group border border-white/10 hover:border-luxury-gold/50 transition-all"
               >
-                <div className="aspect-[3/2] bg-luxury-charcoal flex items-center justify-center text-6xl">
-                  {article.image}
+                <div className="relative aspect-[3/2] overflow-hidden">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
                 </div>
                 <div className="p-6">
                   <span className="inline-block px-2 py-1 border border-white/10 text-luxury-muted text-xs uppercase tracking-widest mb-3">
@@ -218,31 +206,6 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-16 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <Link href="/" className="font-playfair text-2xl font-bold tracking-wider">
-              <span className="text-luxury-gold">B</span>EIBEI
-            </Link>
-            <div className="flex items-center gap-8">
-              <Link href="/blog" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
-                Journal
-              </Link>
-              <Link href="/about" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
-                About
-              </Link>
-              <Link href="/contact" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
-                Contact
-              </Link>
-            </div>
-            <span className="text-sm text-luxury-muted">
-              © 2026 BEIBEI. All rights reserved.
-            </span>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

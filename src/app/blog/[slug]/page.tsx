@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Calendar, Clock, ArrowLeft, Share2, Heart, ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { Calendar, Clock, ArrowLeft, Share2, Heart, ChevronLeft } from "lucide-react";
 
 const articlesData: Record<string, {
   title: string;
@@ -15,7 +16,7 @@ const articlesData: Record<string, {
     title: "馬爾代夫全攻略｜2026 最新選島指南與預算分析",
     excerpt: "想去馬爾代夫但不知道如何選島？這篇完整攻略幫你分析各价位度假村、推荐必去岛屿，以及隐藏版省钱技巧！",
     category: "景點",
-    image: "🏝️",
+    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1200&h=800&fit=crop",
     date: "2026-03-15",
     readTime: "8 分鐘",
     tags: ["馬爾代夫", "海島", "渡假村", "選島指南"],
@@ -80,7 +81,7 @@ const articlesData: Record<string, {
     title: "帛琉潛水全攻略｜與鯊魚共舞的夢幻體驗",
     excerpt: "帛琉是潛水者的天堂！本文详细介绍最佳潜点、水下生物观赏季节，以及不會告訴你的省錢秘密。",
     category: "體驗",
-    image: "🤿",
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&h=800&fit=crop",
     date: "2026-03-10",
     readTime: "6 分鐘",
     tags: ["帛琉", "潛水", "鯊魚", "水下生物"],
@@ -151,31 +152,20 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-luxury-black text-luxury-cream">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-luxury-black/80 backdrop-blur-md border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="font-playfair text-2xl font-bold tracking-wider">
-            <span className="text-luxury-gold">B</span>EIBEI
-          </Link>
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="/blog" className="text-sm uppercase tracking-widest text-luxury-gold">
-              Journal
-            </Link>
-            <Link href="/about" className="text-sm uppercase tracking-widest text-luxury-muted hover:text-luxury-gold transition-colors">
-              About
-            </Link>
-            <Link href="/contact" className="text-sm uppercase tracking-widest text-luxury-muted hover:text-luxury-gold transition-colors">
-              Contact
-            </Link>
-          </div>
-          <Link href="/blog" className="btn-luxury text-xs">
-            Back
-          </Link>
-        </div>
-      </nav>
+      {/* Hero Image */}
+      <div className="relative h-[50vh] md:h-[60vh]">
+        <Image
+          src={article.image}
+          alt={article.title}
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-luxury-black via-luxury-black/30 to-transparent"></div>
+      </div>
 
-      {/* Hero */}
-      <section className="pt-40 pb-20 px-6">
+      {/* Content */}
+      <section className="py-16 px-6 -mt-32 relative z-10">
         <div className="max-w-4xl mx-auto">
           <Link
             href="/blog"
@@ -200,20 +190,14 @@ export default async function BlogPostPage({ params }: PageProps) {
             {article.title}
           </h1>
 
-          <p className="text-xl text-luxury-muted leading-relaxed">
+          <p className="text-xl text-luxury-muted leading-relaxed mb-12">
             {article.excerpt}
           </p>
-        </div>
-      </section>
 
-      {/* Article Content */}
-      <section className="py-12">
-        <div className="max-w-4xl mx-auto px-6">
+          {/* Article Content */}
           <div className="bg-luxury-dark border border-white/10 rounded-sm p-8 md:p-12">
-            <div className="prose prose-lg max-w-none">
-              <div className="text-lg leading-loose text-luxury-cream/80 whitespace-pre-line font-serif-tw">
-                {article.content}
-              </div>
+            <div className="text-lg leading-loose text-luxury-cream/80 whitespace-pre-line font-serif-tw">
+              {article.content}
             </div>
 
             {/* Tags */}
@@ -255,43 +239,26 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <Link
                   key={s}
                   href={`/blog/${s}`}
-                  className="group border border-white/10 hover:border-luxury-gold/50 transition-all p-6"
+                  className="group relative aspect-[16/9] overflow-hidden rounded-sm"
                 >
-                  <span className="text-4xl mb-4 block">{a.image}</span>
-                  <h3 className="font-playfair text-lg mb-2 group-hover:text-luxury-gold transition-colors">
-                    {a.title}
-                  </h3>
-                  <p className="text-luxury-muted text-sm">{a.excerpt}</p>
+                  <Image
+                    src={a.image}
+                    alt={a.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-luxury-black/80 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="font-playfair text-lg mb-2 group-hover:text-luxury-gold transition-colors">
+                      {a.title}
+                    </h3>
+                    <p className="text-luxury-muted text-sm">{a.excerpt}</p>
+                  </div>
                 </Link>
               ))}
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-16 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <Link href="/" className="font-playfair text-2xl font-bold tracking-wider">
-              <span className="text-luxury-gold">B</span>EIBEI
-            </Link>
-            <div className="flex items-center gap-8">
-              <Link href="/blog" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
-                Journal
-              </Link>
-              <Link href="/about" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
-                About
-              </Link>
-              <Link href="/contact" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
-                Contact
-              </Link>
-            </div>
-            <span className="text-sm text-luxury-muted">
-              © 2026 BEIBEI. All rights reserved.
-            </span>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

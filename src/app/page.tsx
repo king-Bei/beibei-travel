@@ -1,58 +1,42 @@
 import Link from "next/link";
-import { MapPin, Plane, Star, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { Star, ChevronRight } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-luxury-black text-luxury-cream bg-luxury-pattern">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-luxury-black/80 backdrop-blur-md border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="font-playfair text-2xl font-bold tracking-wider">
-            <span className="text-luxury-gold">B</span>EIBEI
-          </Link>
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="/blog" className="text-sm uppercase tracking-widest text-luxury-muted hover:text-luxury-gold transition-colors">
-              Journal
-            </Link>
-            <Link href="/about" className="text-sm uppercase tracking-widest text-luxury-muted hover:text-luxury-gold transition-colors">
-              About
-            </Link>
-            <Link href="/contact" className="text-sm uppercase tracking-widest text-luxury-muted hover:text-luxury-gold transition-colors">
-              Contact
-            </Link>
-          </div>
-          <Link href="/blog" className="btn-luxury text-xs">
-            Explore
-          </Link>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background */}
+        {/* Background Image */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-luxury-black/50 via-transparent to-luxury-black"></div>
-          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-luxury-gold/5 rounded-full blur-[150px]"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-luxury-gold/3 rounded-full blur-[100px]"></div>
+          <Image
+            src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1920&h=1080&fit=crop"
+            alt="Maldives"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-luxury-black/70 via-luxury-black/50 to-luxury-black"></div>
+          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-luxury-gold/10 rounded-full blur-[150px]"></div>
         </div>
         
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
-          <div className="inline-flex items-center gap-2 border border-luxury-gold/30 px-4 py-2 rounded-full mb-8 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 border border-luxury-gold/30 px-4 py-2 rounded-full mb-8">
             <Star size={12} className="text-luxury-gold" />
             <span className="text-xs uppercase tracking-[0.2em] text-luxury-muted">Travel Journal</span>
           </div>
           
-          <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl font-medium mb-8 leading-tight animate-fade-in-up animate-delay-100">
+          <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl font-medium mb-8 leading-tight">
             探索世界的<br/>
             <span className="gold-gradient">美好瞬間</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-luxury-muted max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-in-up animate-delay-200">
+          <p className="text-lg md:text-xl text-luxury-muted max-w-2xl mx-auto mb-12 leading-relaxed">
             用雙腳丈量世界，用文字記錄美好。<br/>
             分享我的旅遊故事、體驗與發現
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animate-delay-300">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/blog" className="btn-luxury-solid">
               開始探索
             </Link>
@@ -63,7 +47,7 @@ export default function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in-up animate-delay-400">
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
           <span className="text-xs uppercase tracking-widest text-luxury-muted">Scroll</span>
           <div className="w-px h-12 bg-gradient-to-b from-luxury-gold to-transparent"></div>
         </div>
@@ -86,7 +70,12 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Featured Article 1 */}
             <Link href="/blog/maldives-2026" className="group relative aspect-[4/3] overflow-hidden rounded-sm">
-              <div className="absolute inset-0 bg-luxury-charcoal group-hover:scale-105 transition-transform duration-700"></div>
+              <Image
+                src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=600&fit=crop"
+                alt="馬爾代夫"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-luxury-black via-luxury-black/30 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <span className="inline-block px-3 py-1 bg-luxury-gold/20 text-luxury-gold text-xs uppercase tracking-widest mb-4">
@@ -103,7 +92,12 @@ export default function Home() {
 
             {/* Featured Article 2 */}
             <Link href="/blog/palau-diving" className="group relative aspect-[4/3] overflow-hidden rounded-sm">
-              <div className="absolute inset-0 bg-luxury-charcoal group-hover:scale-105 transition-transform duration-700"></div>
+              <Image
+                src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop"
+                alt="帛琉潛水"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-luxury-black via-luxury-black/30 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <span className="inline-block px-3 py-1 bg-luxury-gold/20 text-luxury-gold text-xs uppercase tracking-widest mb-4">
@@ -137,28 +131,46 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="group p-8 border border-white/10 hover:border-luxury-gold/50 transition-all duration-500">
-              <MapPin className="w-8 h-8 text-luxury-gold mb-6" />
-              <h3 className="font-playfair text-2xl mb-4">亞洲海島</h3>
-              <p className="text-luxury-muted leading-relaxed">
-                馬爾代夫、帛琉、沖繩、濟州島、普吉島、峇里島
-              </p>
+            <div className="group relative aspect-[3/4] overflow-hidden rounded-sm">
+              <Image
+                src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&h=800&fit=crop"
+                alt="東京"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-luxury-black/80 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <h3 className="font-playfair text-2xl mb-2">亞洲城市</h3>
+                <p className="text-luxury-muted text-sm">東京、首爾、曼谷、新加坡</p>
+              </div>
             </div>
             
-            <div className="group p-8 border border-white/10 hover:border-luxury-gold/50 transition-all duration-500">
-              <Star className="w-8 h-8 text-luxury-gold mb-6" />
-              <h3 className="font-playfair text-2xl mb-4">歐洲風情</h3>
-              <p className="text-luxury-muted leading-relaxed">
-                法國、義大利、瑞士、荷蘭、英國、西班牙
-              </p>
+            <div className="group relative aspect-[3/4] overflow-hidden rounded-sm">
+              <Image
+                src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&h=800&fit=crop"
+                alt="海島"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-luxury-black/80 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <h3 className="font-playfair text-2xl mb-2">亞洲海島</h3>
+                <p className="text-luxury-muted text-sm">馬爾代夫、帛琉、沖繩、峇里島</p>
+              </div>
             </div>
             
-            <div className="group p-8 border border-white/10 hover:border-luxury-gold/50 transition-all duration-500">
-              <Plane className="w-8 h-8 text-luxury-gold mb-6" />
-              <h3 className="font-playfair text-2xl mb-4">亞洲城市</h3>
-              <p className="text-luxury-muted leading-relaxed">
-                東京、首爾、曼谷、新加坡、香港、台北
-              </p>
+            <div className="group relative aspect-[3/4] overflow-hidden rounded-sm">
+              <Image
+                src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=600&h=800&fit=crop"
+                alt="歐洲"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-luxury-black/80 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <h3 className="font-playfair text-2xl mb-2">歐洲風情</h3>
+                <p className="text-luxury-muted text-sm">法國、義大利、瑞士、荷蘭</p>
+              </div>
             </div>
           </div>
         </div>
@@ -174,24 +186,31 @@ export default function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { name: "旅遊攻略", count: 12, href: "/blog?category=攻略" },
-              { name: "景點推薦", count: 18, href: "/blog?category=景點" },
-              { name: "美食探索", count: 9, href: "/blog?category=美食" },
-              { name: "攝影技巧", count: 6, href: "/blog?category=攝影" },
-              { name: "旅遊須知", count: 8, href: "/blog?category=須知" },
-              { name: "特殊體驗", count: 7, href: "/blog?category=體驗" },
+              { name: "旅遊攻略", count: 12, href: "/blog?category=攻略", img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=300&fit=crop" },
+              { name: "景點推薦", count: 18, href: "/blog?category=景點", img: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=400&h=300&fit=crop" },
+              { name: "美食探索", count: 9, href: "/blog?category=美食", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop" },
+              { name: "攝影技巧", count: 6, href: "/blog?category=攝影", img: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=300&fit=crop" },
+              { name: "旅遊須知", count: 8, href: "/blog?category=須知", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&h=300&fit=crop" },
+              { name: "特殊體驗", count: 7, href: "/blog?category=體驗", img: "https://images.unsplash.com/photo-1530866495561-507c9faab2ed?w=400&h=300&fit=crop" },
             ].map((cat) => (
               <Link
                 key={cat.name}
                 href={cat.href}
-                className="group p-6 border border-white/10 hover:border-luxury-gold/50 transition-all text-center"
+                className="group relative aspect-[4/3] overflow-hidden rounded-sm"
               >
-                <h3 className="font-playfair text-xl mb-2 group-hover:text-luxury-gold transition-colors">
-                  {cat.name}
-                </h3>
-                <span className="text-xs text-luxury-muted uppercase tracking-widest">
-                  {cat.count} 篇
-                </span>
+                <Image
+                  src={cat.img}
+                  alt={cat.name}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-luxury-black/50 group-hover:bg-luxury-black/30 transition-colors"></div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <h3 className="font-playfair text-xl mb-1">{cat.name}</h3>
+                  <span className="text-xs text-luxury-muted uppercase tracking-widest">
+                    {cat.count} 篇
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
@@ -201,6 +220,13 @@ export default function Home() {
       {/* Newsletter */}
       <section className="py-32 bg-luxury-black relative overflow-hidden">
         <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&h=600&fit=crop"
+            alt="Newsletter"
+            fill
+            className="object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-luxury-black via-luxury-black/80 to-luxury-black"></div>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-luxury-gold/5 rounded-full blur-[120px]"></div>
         </div>
         <div className="max-w-3xl mx-auto px-6 text-center relative z-10">
@@ -221,31 +247,6 @@ export default function Home() {
           </form>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-16 bg-luxury-dark border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <Link href="/" className="font-playfair text-2xl font-bold tracking-wider">
-              <span className="text-luxury-gold">B</span>EIBEI
-            </Link>
-            <div className="flex items-center gap-8">
-              <Link href="/blog" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
-                Journal
-              </Link>
-              <Link href="/about" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
-                About
-              </Link>
-              <Link href="/contact" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
-                Contact
-              </Link>
-            </div>
-            <span className="text-sm text-luxury-muted">
-              © 2026 BEIBEI. All rights reserved.
-            </span>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

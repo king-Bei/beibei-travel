@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_TC, Noto_Serif_TC } from "next/font/google";
+import { Noto_Sans_TC, Noto_Serif_TC, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 
@@ -14,11 +14,16 @@ const notoSerif = Noto_Serif_TC({
   variable: "--font-noto-serif",
 });
 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
+
 // 部落格作者設定
 const authorConfig = {
   name: "貝貝的旅行日誌",
   bio: "熱愛探索世界的旅遊玩家，20+國家旅遊經驗，分享最真實的旅遊故事、必遊景點與實用攻略。",
-  avatar: "/avatar.jpg",
+  avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
   social: {
     instagram: "@beibei.travel",
     email: "beibei@beibei-travel.com",
@@ -26,7 +31,7 @@ const authorConfig = {
 };
 
 const siteConfig = {
-  name: "貝貝的旅行日誌",
+  name: "BEIBEI TRAVEL",
   description: "熱愛探索世界的旅遊玩家，分享20+國家旅遊經驗、最真實的旅遊故事、必遊景點與實用攻略。",
   url: "https://beibei-travel.com",
   keywords: [
@@ -62,7 +67,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: `${siteConfig.url}/og-image.jpg`,
+        url: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1200&h=630&fit=crop",
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -77,13 +82,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
   category: "travel",
   classification: "Travel Blog",
@@ -106,16 +104,12 @@ export default function RootLayout({
               "@type": "Person",
               "name": authorConfig.name,
               "url": siteConfig.url,
-              "image": `${siteConfig.url}/avatar.jpg`,
+              "image": authorConfig.avatar,
               "description": authorConfig.bio,
               "jobTitle": "旅遊部落客",
               "sameAs": [
                 `https://instagram.com/${authorConfig.social.instagram.replace('@', '')}`,
               ],
-              "worksFor": {
-                "@type": "Organization",
-                "name": authorConfig.name
-              },
             }),
           }}
         />
@@ -130,62 +124,36 @@ export default function RootLayout({
               "name": siteConfig.name,
               "url": siteConfig.url,
               "description": siteConfig.description,
-              "keywords": siteConfig.keywords.join(", "),
               "author": {
                 "@type": "Person",
                 "name": authorConfig.name,
               },
-              "publisher": {
-                "@type": "Person",
-                "name": authorConfig.name,
-              },
-              "inLanguage": "zh-TW",
-              "about": {
-                "@type": "Thing",
-                "name": "旅遊",
-                "description": "自由行、旅遊攻略、景點推薦",
-              },
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": { "@type": "EntryPoint", "urlTemplate": `${siteConfig.url}/blog?q={search_term_string}` },
-                "query-input": "required name=search_term_string",
-              },
-            }),
-          }}
-        />
-
-        {/* Blog 結構化資料 */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Blog",
-              "name": siteConfig.name,
-              "url": siteConfig.url,
-              "description": siteConfig.description,
-              "author": {
-                "@type": "Person",
-                "name": authorConfig.name,
-              },
-              "keywords": siteConfig.keywords.join(", "),
             }),
           }}
         />
       </head>
 
-      <body className={`${notoSans.variable} ${notoSerif.variable} font-sans bg-cream text-charcoal`}>
+      <body className={`${notoSans.variable} ${notoSerif.variable} ${playfair.variable} font-sans bg-luxury-black text-luxury-cream`}>
         {/* 導航欄 */}
-        <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
-          <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <Link href="/" className="text-2xl font-black tracking-tight">
-              <span className="text-amber-600">貝貝</span>的旅行日誌
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-luxury-black/80 backdrop-blur-md border-b border-white/5">
+          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <Link href="/" className="font-playfair text-2xl font-bold tracking-wider">
+              <span className="text-luxury-gold">B</span>EIBEI
             </Link>
-            <div className="flex items-center gap-6">
-              <Link href="/blog" className="font-medium hover:text-amber-600 transition-colors">文章</Link>
-              <Link href="/destinations" className="font-medium hover:text-amber-600 transition-colors">目的地</Link>
-              <Link href="/about" className="font-medium hover:text-amber-600 transition-colors">關於貝貝</Link>
+            <div className="hidden md:flex items-center gap-8">
+              <Link href="/blog" className="text-sm uppercase tracking-widest text-luxury-muted hover:text-luxury-gold transition-colors">
+                Journal
+              </Link>
+              <Link href="/destinations" className="text-sm uppercase tracking-widest text-luxury-muted hover:text-luxury-gold transition-colors">
+                Destinations
+              </Link>
+              <Link href="/about" className="text-sm uppercase tracking-widest text-luxury-muted hover:text-luxury-gold transition-colors">
+                About
+              </Link>
             </div>
+            <Link href="/blog" className="btn-luxury text-xs">
+              Explore
+            </Link>
           </div>
         </nav>
 
@@ -195,37 +163,26 @@ export default function RootLayout({
         </main>
 
         {/* 底部 */}
-        <footer className="bg-charcoal text-white py-12 mt-20">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="text-2xl font-black">
-                    <span className="text-amber-500">貝貝</span>的旅行日誌
-                  </span>
-                </div>
-                <p className="text-slate-400">
-                  {authorConfig.bio}
-                </p>
+        <footer className="py-16 bg-luxury-dark border-t border-white/5">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              <Link href="/" className="font-playfair text-2xl font-bold tracking-wider">
+                <span className="text-luxury-gold">B</span>EIBEI
+              </Link>
+              <div className="flex items-center gap-8">
+                <Link href="/blog" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
+                  Journal
+                </Link>
+                <Link href="/destinations" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
+                  Destinations
+                </Link>
+                <Link href="/about" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
+                  About
+                </Link>
               </div>
-              <div>
-                <h4 className="font-bold mb-4">快速連結</h4>
-                <ul className="space-y-2 text-slate-400">
-                  <li><Link href="/blog" className="hover:text-amber-500">旅遊文章</Link></li>
-                  <li><Link href="/destinations" className="hover:text-amber-500">目的地推薦</Link></li>
-                  <li><Link href="/about" className="hover:text-amber-500">關於貝貝</Link></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-bold mb-4">聯絡貝貝</h4>
-                <ul className="space-y-2 text-slate-400">
-                  <li>{authorConfig.social.email}</li>
-                  <li>{authorConfig.social.instagram}</li>
-                </ul>
-              </div>
-            </div>
-            <div className="border-t border-slate-700 mt-8 pt-8 text-center text-slate-500 text-sm">
-              © 2026 {authorConfig.name}. All rights reserved.
+              <span className="text-sm text-luxury-muted">
+                © 2026 BEIBEI. All rights reserved.
+              </span>
             </div>
           </div>
         </footer>
