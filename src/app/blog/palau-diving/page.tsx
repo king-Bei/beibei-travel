@@ -24,7 +24,7 @@ const article = {
 const relatedArticles = [
   {
     slug: "maldives-2026",
-    title: "馬爾代夫全攻略｜2026 最新選島指南與預算分析",
+    title: "馬爾地夫全攻略｜2026 最新選島指南與預算分析",
     image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600&h=400&fit=crop"
   }
 ];

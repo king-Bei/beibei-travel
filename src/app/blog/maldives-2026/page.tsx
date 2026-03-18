@@ -3,18 +3,18 @@ import Image from "next/image";
 import { Calendar, Clock, ChevronLeft, Share2, Heart, ChevronRight } from "lucide-react";
 
 export const metadata = {
-  title: "馬爾代夫全攻略｜2026 最新選島指南與預算分析",
-  description: "想去馬爾代夫但不知道如何選島？這篇完整攻略幫你分析各價位度假村、推薦必去島嶼，以及隱藏版省錢技巧！",
+  title: "馬爾地夫全攻略｜2026 最新選島指南與預算分析",
+  description: "想去馬爾地夫但不知道如何選島？這篇完整攻略幫你分析各價位度假村、推薦必去島嶼，以及隱藏版省錢技巧！",
 };
 
 const article = {
-  title: "馬爾代夫全攻略｜2026 最新選島指南與預算分析",
-  excerpt: "想去馬爾代夫但不知道如何選島？這篇完整攻略幫你分析各價位度假村、推薦必去島嶼，以及隱藏版省錢技巧！",
+  title: "馬爾地夫全攻略｜2026 最新選島指南與預算分析",
+  excerpt: "想去馬爾地夫但不知道如何選島？這篇完整攻略幫你分析各價位度假村、推薦必去島嶼，以及隱藏版省錢技巧！",
   category: "景點推薦",
   image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1200&h=800&fit=crop",
   date: "2026-03-18",
   readTime: "10 分鐘",
-  tags: ["馬爾代夫", "海島", "渡假村", "選島指南", "蜜月"],
+  tags: ["馬爾地夫", "海島", "渡假村", "選島指南", "蜜月"],
   author: {
     name: "貝貝",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
@@ -36,7 +36,7 @@ export default function Page() {
       <div className="relative h-[50vh] md:h-[60vh]">
         <Image
           src={https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1920&h=1080&fit=crop}
-          alt="馬爾代夫水上屋"
+          alt="馬爾地夫水上屋"
           fill
           className="object-cover"
           priority
@@ -95,7 +95,7 @@ export default function Page() {
             <div className="mb-12 p-6 bg-luxury-black/50 rounded-lg border border-white/5">
               <h2 className="text-lg font-bold mb-4 text-luxury-gold">📑 文章目錄</h2>
               <ul className="space-y-2 text-luxury-muted">
-                <li><a href="#why-maldives" className="hover:text-luxury-gold">為什麼選擇馬爾代夫？</a></li>
+                <li><a href="#why-maldives" className="hover:text-luxury-gold">為什麼選擇馬爾地夫？</a></li>
                 <li><a href="#budget" className="hover:text-luxury-gold">預算分析</a></li>
                 <li><a href="#choose-island" className="hover:text-luxury-gold">選島技巧</a></li>
                 <li><a href="#recommended" className="hover:text-luxury-gold">推薦島嶼</a></li>
@@ -103,11 +103,11 @@ export default function Page() {
               </ul>
             </div>
 
-            {/* 為什麼選擇馬爾代夫 */}
+            {/* 為什麼選擇馬爾地夫 */}
             <div id="why-maldives" className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-playfair mb-6 text-luxury-gold">🏝️ 為什麼選擇馬爾代夫？</h2>
+              <h2 className="text-2xl md:text-3xl font-playfair mb-6 text-luxury-gold">🏝️ 為什麼選擇馬爾地夫？</h2>
               <p className="text-lg leading-relaxed text-luxury-cream/80 mb-6">
-                說到海島度假，馬爾代夫絕對是許多人心中的夢想清單第一名！這個由 1,000 多座珊瑚礁島嶼組成的國家，有著「印度洋上的珍珠」之稱，更是無數情侶夢寐以求的蜜月聖地。
+                說到海島度假，馬爾地夫絕對是許多人心中的夢想清單第一名！這個由 1,000 多座珊瑚礁島嶼組成的國家，有著「印度洋上的珍珠」之稱，更是無數情侶夢寐以求的蜜月聖地。
               </p>
               <div className="grid md:grid-cols-2 gap-6 my-8">
                 <div className="bg-luxury-black p-6 rounded-lg border border-white/5">
@@ -133,7 +133,7 @@ export default function Page() {
             <div id="budget" className="mb-12">
               <h2 className="text-2xl md:text-3xl font-playfair mb-6 text-luxury-gold">💰 預算分析</h2>
               <p className="text-lg leading-relaxed text-luxury-cream/80 mb-6">
-                馬爾代夫的住宿選擇非常多元，從經濟實惠的居民島到奢華的六星級度假村都有。以下是各價位的詳細分析：
+                馬爾地夫的住宿選擇非常多元，從經濟實惠的居民島到奢華的六星級度假村都有。以下是各價位的詳細分析：
               </p>
               
               <div className="overflow-x-auto my-8">
@@ -178,7 +178,7 @@ export default function Page() {
               <div className="bg-amber-900/20 border border-amber-500/30 p-6 rounded-lg">
                 <h3 className="text-lg font-bold mb-2 text-amber-400">💡 小提醒</h3>
                 <p className="text-luxury-muted">
-                  以上價格為基本房價，馬爾代夫的機票另外計算。建議提早 3-6 個月預訂，可獲得更好的價格！
+                  以上價格為基本房價，馬爾地夫的機票另外計算。建議提早 3-6 個月預訂，可獲得更好的價格！
                 </p>
               </div>
             </div>
@@ -187,7 +187,7 @@ export default function Page() {
             <div id="choose-island" className="mb-12">
               <h2 className="text-2xl md:text-3xl font-playfair mb-6 text-luxury-gold">🎯 選島技巧</h2>
               <p className="text-lg leading-relaxed text-luxury-cream/80 mb-6">
-                馬爾代夫有超過 100 座開放給觀光客的度假島嶼，如何選擇最適合自己的島呢？以下是我整理的 4 大考量因素：
+                馬爾地夫有超過 100 座開放給觀光客的度假島嶼，如何選擇最適合自己的島呢？以下是我整理的 4 大考量因素：
               </p>
 
               <div className="space-y-6 my-8">
@@ -307,7 +307,7 @@ export default function Page() {
             <div className="mb-12">
               <h2 className="text-2xl md:text-3xl font-playfair mb-6 text-luxury-gold">📝 總結</h2>
               <p className="text-lg leading-relaxed text-luxury-cream/80">
-                馬爾代夫確實是個一生必去的夢幻目的地！無論你是預算有限的背包客，還是想要奢華享受的蜜月新人，這裡都有適合你的選擇。希望這篇選島攻略能幫助你找到心儀的島嶼，開始規劃你的馬爾代夫之旅！
+                馬爾地夫確實是個一生必去的夢幻目的地！無論你是預算有限的背包客，還是想要奢華享受的蜜月新人，這裡都有適合你的選擇。希望這篇選島攻略能幫助你找到心儀的島嶼，開始規劃你的馬爾地夫之旅！
               </p>
             </div>
 

@@ -5,8 +5,8 @@ import { Calendar, Clock, ChevronRight, Search } from "lucide-react";
 const articles = [
   {
     slug: "maldives-2026",
-    title: "馬爾代夫全攻略｜2026 最新選島指南與預算分析",
-    excerpt: "想去馬爾代夫但不知道如何選島？完整攻略幫你分析各價位度假村、推薦必去島嶼，以及隱藏版省錢技巧！",
+    title: "馬爾地夫全攻略｜2026 最新選島指南與預算分析",
+    excerpt: "想去馬爾地夫但不知道如何選島？完整攻略幫你分析各價位度假村、推薦必去島嶼，以及隱藏版省錢技巧！",
     category: "景點",
     image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=600&fit=crop",
     date: "2026-03-15",

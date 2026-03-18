@@ -72,7 +72,7 @@ export default function Home() {
             <Link href="/blog/maldives-2026" className="group relative aspect-[4/3] overflow-hidden rounded-sm">
               <Image
                 src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=600&fit=crop"
-                alt="馬爾代夫"
+                alt="馬爾地夫"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
@@ -82,10 +82,10 @@ export default function Home() {
                   景點
                 </span>
                 <h3 className="font-playfair text-2xl md:text-3xl mb-2 group-hover:text-luxury-gold transition-colors">
-                  馬爾代夫全攻略<br/>2026 最新選島指南
+                  馬爾地夫全攻略<br/>2026 最新選島指南
                 </h3>
                 <p className="text-luxury-muted text-sm line-clamp-2">
-                  想去馬爾代夫但不知道如何選島？完整分析各價位度假村、推薦必去島嶼
+                  想去馬爾地夫但不知道如何選島？完整分析各價位度假村、推薦必去島嶼
                 </p>
               </div>
             </Link>
@@ -155,7 +155,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-luxury-black/80 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <h3 className="font-playfair text-2xl mb-2">亞洲海島</h3>
-                <p className="text-luxury-muted text-sm">馬爾代夫、帛琉、沖繩、峇里島</p>
+                <p className="text-luxury-muted text-sm">馬爾地夫、帛琉、沖繩、峇里島</p>
               </div>
             </div>
             
