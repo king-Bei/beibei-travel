@@ -6,7 +6,7 @@ const articles = [
   {
     slug: "maldives-2026",
     title: "馬爾代夫全攻略｜2026 最新選島指南與預算分析",
-    excerpt: "想去馬爾代夫但不知道如何選島？這篇完整攻略幫你分析各价位度假村、推荐必去岛屿，以及隐藏版省钱技巧！",
+    excerpt: "想去馬爾代夫但不知道如何選島？完整攻略幫你分析各價位度假村、推薦必去島嶼，以及隱藏版省錢技巧！",
     category: "景點",
     image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=600&fit=crop",
     date: "2026-03-15",
@@ -16,7 +16,7 @@ const articles = [
   {
     slug: "palau-diving",
     title: "帛琉潛水全攻略｜與鯊魚共舞的夢幻體驗",
-    excerpt: "帛琉是潛水者的天堂！本文详细介绍最佳潜点、水下生物观赏季节，以及不會告訴你的省錢秘密。",
+    excerpt: "帛琉是潛水者的天堂！詳細介紹最佳潛點、水下生物觀賞季節，以及不會告訴你的省錢秘密。",
     category: "體驗",
     image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop",
     date: "2026-03-10",
@@ -24,9 +24,9 @@ const articles = [
     featured: true
   },
   {
-    slug: "okinawa-food",
-    title: "沖繩美食地圖｜10 間在地人推薦的隱藏版餐廳",
-    excerpt: "不再只有國際通！探索在地人吃的沖繩料理，從阿古豬到塔可飯，這些美食景點你一定要知道。",
+    slug: "tokyo-food",
+    title: "東京美食地圖｜10 間在地人推薦的隱藏版餐廳",
+    excerpt: "打破只有國際通的迷思！探索在地人吃的東京料理，這些美食景點你一定要知道。",
     category: "美食",
     image: "https://images.unsplash.com/photo-1580821810645-11a8fd7c9f83?w=800&h=600&fit=crop",
     date: "2026-03-05",
@@ -52,20 +52,10 @@ const articles = [
     date: "2026-02-20",
     readTime: "9 分鐘",
     featured: false
-  },
-  {
-    slug: "thailand-visa",
-    title: "泰國簽證最新政策｜2026 免簽入境的要注意的事",
-    excerpt: "泰國持續免簽！但這些细节你必须知道。快速通关技巧、落地签流程，以及常见问题解答。",
-    category: "須知",
-    image: "https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&h=600&fit=crop",
-    date: "2026-02-15",
-    readTime: "4 分鐘",
-    featured: false
   }
 ];
 
-const categories = ["全部", "攻略", "景點", "美食", "攝影", "須知", "體驗"];
+const categories = ["全部", "攻略", "景點", "美食", "攝影", "體驗"];
 
 export default function BlogPage() {
   return (
