@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { Calendar, Clock, ArrowLeft, Share2, Heart } from "lucide-react";
+import { Calendar, Clock, ArrowLeft, Share2, Heart, ChevronLeft, ChevronRight } from "lucide-react";
 
-// 模擬文章數據庫
 const articlesData: Record<string, {
   title: string;
   excerpt: string;
@@ -21,8 +20,6 @@ const articlesData: Record<string, {
     readTime: "8 分鐘",
     tags: ["馬爾代夫", "海島", "渡假村", "選島指南"],
     content: `
-# 馬爾代夫全攻略｜2026 最新選島指南與預算分析
-
 大家好！我是貝貝～今天要來分享馬爾代夫的完整攻略！🌴
 
 ## 為什麼選擇馬爾代夫？
@@ -88,8 +85,6 @@ const articlesData: Record<string, {
     readTime: "6 分鐘",
     tags: ["帛琉", "潛水", "鯊魚", "水下生物"],
     content: `
-# 帛琉潛水全攻略｜與鯊魚共舞的夢幻體驗
-
 帛琉！这个被称作「上帝的水族箱」的地方，绝对是潜水爱好者的终极目的地！🐠
 
 ## 為何選擇帛琉？
@@ -143,10 +138,10 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   if (!article) {
     return (
-      <div className="min-h-screen bg-cream flex items-center justify-center">
+      <div className="min-h-screen bg-luxury-black flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-black mb-4">文章不存在</h1>
-          <Link href="/blog" className="text-amber-600 hover:underline">
+          <h1 className="font-playfair text-4xl mb-4">文章不存在</h1>
+          <Link href="/blog" className="text-luxury-gold hover:underline">
             返回部落格
           </Link>
         </div>
@@ -155,79 +150,103 @@ export default async function BlogPostPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="min-h-screen bg-luxury-black text-luxury-cream">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-luxury-black/80 backdrop-blur-md border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <Link href="/" className="font-playfair text-2xl font-bold tracking-wider">
+            <span className="text-luxury-gold">B</span>EIBEI
+          </Link>
+          <div className="hidden md:flex items-center gap-8">
+            <Link href="/blog" className="text-sm uppercase tracking-widest text-luxury-gold">
+              Journal
+            </Link>
+            <Link href="/about" className="text-sm uppercase tracking-widest text-luxury-muted hover:text-luxury-gold transition-colors">
+              About
+            </Link>
+            <Link href="/contact" className="text-sm uppercase tracking-widest text-luxury-muted hover:text-luxury-gold transition-colors">
+              Contact
+            </Link>
+          </div>
+          <Link href="/blog" className="btn-luxury text-xs">
+            Back
+          </Link>
+        </div>
+      </nav>
+
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-br from-amber-50 to-orange-50">
-        <div className="max-w-4xl mx-auto px-4">
+      <section className="pt-40 pb-20 px-6">
+        <div className="max-w-4xl mx-auto">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-slate-600 hover:text-amber-600 mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-luxury-muted hover:text-luxury-gold mb-8 transition-colors"
           >
-            <ArrowLeft size={20} /> 返回文章列表
+            <ChevronLeft size={20} /> 返回文章列表
           </Link>
           
-          <div className="flex items-center gap-3 mb-4">
-            <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-medium">
+          <div className="flex flex-wrap items-center gap-4 mb-6">
+            <span className="px-3 py-1 border border-luxury-gold/30 text-luxury-gold text-xs uppercase tracking-widest">
               {article.category}
             </span>
-            <span className="text-slate-500 text-sm flex items-center gap-1">
+            <span className="text-luxury-muted text-sm flex items-center gap-1">
               <Calendar size={14} /> {article.date}
             </span>
-            <span className="text-slate-500 text-sm flex items-center gap-1">
+            <span className="text-luxury-muted text-sm flex items-center gap-1">
               <Clock size={14} /> {article.readTime}
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-black text-charcoal mb-6">
+          <h1 className="font-playfair text-4xl md:text-5xl lg:text-6xl leading-tight mb-8">
             {article.title}
           </h1>
 
-          <p className="text-xl text-slate-600 mb-8">
+          <p className="text-xl text-luxury-muted leading-relaxed">
             {article.excerpt}
           </p>
-
-          <div className="flex items-center gap-3">
-            <button className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm hover:shadow-md transition-all">
-              <Heart size={18} className="text-rose-500" /> 收藏
-            </button>
-            <button className="flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm hover:shadow-md transition-all">
-              <Share2 size={18} /> 分享
-            </button>
-          </div>
         </div>
       </section>
 
-      {/* 文章內容 */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm">
+      {/* Article Content */}
+      <section className="py-12">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="bg-luxury-dark border border-white/10 rounded-sm p-8 md:p-12">
             <div className="prose prose-lg max-w-none">
-              <div className="text-xl leading-relaxed text-slate-700 whitespace-pre-line">
+              <div className="text-lg leading-loose text-luxury-cream/80 whitespace-pre-line font-serif-tw">
                 {article.content}
               </div>
             </div>
 
             {/* Tags */}
-            <div className="mt-12 pt-8 border-t">
-              <div className="flex flex-wrap gap-2">
+            <div className="mt-16 pt-8 border-t border-white/10">
+              <div className="flex flex-wrap gap-3">
                 {article.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-sm"
+                    className="px-4 py-2 border border-white/10 text-luxury-muted text-sm hover:border-luxury-gold hover:text-luxury-gold transition-colors cursor-pointer"
                   >
                     #{tag}
                   </span>
                 ))}
               </div>
             </div>
+
+            {/* Actions */}
+            <div className="mt-12 flex items-center gap-4">
+              <button className="flex items-center gap-2 px-6 py-3 border border-white/10 hover:border-luxury-gold text-luxury-muted hover:text-luxury-gold transition-colors">
+                <Heart size={18} /> 收藏
+              </button>
+              <button className="flex items-center gap-2 px-6 py-3 border border-white/10 hover:border-luxury-gold text-luxury-muted hover:text-luxury-gold transition-colors">
+                <Share2 size={18} /> 分享
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 相關文章 */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl font-black mb-8">延伸閱讀 📚</h2>
+      {/* Related Articles */}
+      <section className="py-20 bg-luxury-dark">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-xs uppercase tracking-[0.2em] text-luxury-gold mb-8">延伸閱讀</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {Object.entries(articlesData)
               .filter(([s]) => s !== slug)
@@ -236,18 +255,43 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <Link
                   key={s}
                   href={`/blog/${s}`}
-                  className="group bg-cream rounded-2xl p-6 hover:shadow-lg transition-all"
+                  className="group border border-white/10 hover:border-luxury-gold/50 transition-all p-6"
                 >
                   <span className="text-4xl mb-4 block">{a.image}</span>
-                  <h3 className="text-lg font-bold mb-2 group-hover:text-amber-600">
+                  <h3 className="font-playfair text-lg mb-2 group-hover:text-luxury-gold transition-colors">
                     {a.title}
                   </h3>
-                  <p className="text-slate-500 text-sm">{a.excerpt}</p>
+                  <p className="text-luxury-muted text-sm">{a.excerpt}</p>
                 </Link>
               ))}
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-16 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <Link href="/" className="font-playfair text-2xl font-bold tracking-wider">
+              <span className="text-luxury-gold">B</span>EIBEI
+            </Link>
+            <div className="flex items-center gap-8">
+              <Link href="/blog" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
+                Journal
+              </Link>
+              <Link href="/about" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
+                About
+              </Link>
+              <Link href="/contact" className="text-sm text-luxury-muted hover:text-luxury-gold transition-colors">
+                Contact
+              </Link>
+            </div>
+            <span className="text-sm text-luxury-muted">
+              © 2026 BEIBEI. All rights reserved.
+            </span>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
