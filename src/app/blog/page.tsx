@@ -4,6 +4,26 @@ import { Calendar, Clock, ChevronRight, Search } from "lucide-react";
 
 const articles = [
   {
+    slug: "great-barrier-reef",
+    title: "【貝貝的大堡礁潛水初體驗】人生最震撼的海底世界",
+    excerpt: "一生必去的海底奇蹟！貝貝帶你見證世界最大珊瑚礁群的震撼，澳洲大堡礁潛水初體驗",
+    category: "體驗",
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop",
+    date: "2026-03-18",
+    readTime: "8 分鐘",
+    featured: true
+  },
+  {
+    slug: "bangkok-michelin",
+    title: "曼谷米其林美食攻略｜2026 米其林星級餐廳完整指南",
+    excerpt: "曼谷米其林美食攻略！本文介紹 2026 曼谷米其林最新名單、星級餐廳推薦、米其林必比登，以及街頭米其林美食指南。",
+    category: "美食",
+    image: "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&h=600&fit=crop",
+    date: "2026-03-19",
+    readTime: "12 分鐘",
+    featured: true
+  },
+  {
     slug: "maldives-2026",
     title: "馬爾地夫全攻略｜2026 最新選島指南與預算分析",
     excerpt: "想去馬爾地夫但不知道如何選島？完整攻略幫你分析各價位度假村、推薦必去島嶼，以及隱藏版省錢技巧！",
@@ -11,7 +31,7 @@ const articles = [
     image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&h=600&fit=crop",
     date: "2026-03-15",
     readTime: "8 分鐘",
-    featured: true
+    featured: false
   },
   {
     slug: "palau-diving",
@@ -21,7 +41,7 @@ const articles = [
     image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop",
     date: "2026-03-10",
     readTime: "6 分鐘",
-    featured: true
+    featured: false
   },
   {
     slug: "tokyo-food",
